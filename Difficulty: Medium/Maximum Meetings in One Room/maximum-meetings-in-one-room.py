@@ -1,26 +1,24 @@
 class Solution:
-    def maxMeetings(self, s, f) :
-        # code here'
-        position = []
-        order = []
-        temp = -1
-        
-        for i in range (0,len(s)):
-            position.append(i+1)
-        arr = list(zip(s,f, position))
+    def maxMeetings(self, s, f):
+        # code here
+        arr = []
+        for i in range(0 , len(s)):
+            temp = (s[i], f[i], i+1)
+            arr.append(temp)
+            
+        arr.sort(key = lambda x : (x[1], x[2]))
+        #O(n)
+        #O(nlogn)
 
-        
-        arr.sort(key=lambda x: (x[1], x[2]))
+        start = 0
+        end = -1
+        answer = []
         # print(arr)
-        # return(0,0)
         
+        #O(n)
         for i in range (len(arr)):
-            if arr[i][0] > temp:
-                temp = arr[i][1]
-                order.append(arr[i][2])
-                order.sort()
-                
-                
-        return order
-                
-        
+            if end < arr[i][0]:
+                answer.append(arr[i][2])
+                end = arr[i][1]
+        answer.sort()
+        return answer
