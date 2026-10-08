@@ -2,20 +2,20 @@ class Solution:
     def findXOR(self, l, r):
         # code here
         
-        
-        def findXor(n):
-            if n%4 == 1:
+        def xor_function(number):
+            quotient = number % 4
+            
+            if quotient == 0:
+                return number
+                
+            elif quotient == 1:
                 return 1
-            elif n % 4 == 2:
-                return (n + 1)                
-            elif n % 4 == 3:
+                
+            elif quotient == 2:
+                return number + 1
+            
+            else:
                 return 0
-            elif n % 4 == 0:
-                return n
                 
-                
-            
-        answer = findXor(l - 1) ^ findXor(r)
+        answer = xor_function(l-1) ^ xor_function(r)
         return answer
-            
-        
