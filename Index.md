@@ -4,6 +4,7 @@ All solved problems organized by pattern/category.
 
 
 ## Uncategorized
+- [Ways to Reach the n'th Stair](./GeeksForGeeks/Medium/Ways%20to%20Reach%20the%20nth%20Stair) - *Medium*
 - [Fibonacci Sum](./GeeksForGeeks/Medium/Fibonacci%20Sum) - *Medium*
 - [Nth Fibonacci Using Recursion](./GeeksForGeeks/Easy/Nth%20Fibonacci%20Using%20Recursion) - *Easy*
 - [Count Subarrays with k Odds](./GeeksForGeeks/Medium/Count%20Subarrays%20with%20k%20Odds) - *Medium*
