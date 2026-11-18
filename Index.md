@@ -4,6 +4,7 @@ All solved problems organized by pattern/category.
 
 
 ## Uncategorized
+- [Fibonacci Sum](./GeeksForGeeks/Medium/Fibonacci%20Sum) - *Medium*
 - [Nth Fibonacci Using Recursion](./GeeksForGeeks/Easy/Nth%20Fibonacci%20Using%20Recursion) - *Easy*
 - [Count Subarrays with k Odds](./GeeksForGeeks/Medium/Count%20Subarrays%20with%20k%20Odds) - *Medium*
 - [Binary subarray sum](./GeeksForGeeks/Medium/Binary%20subarray%20sum) - *Medium*
