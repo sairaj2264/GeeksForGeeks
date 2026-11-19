@@ -1,28 +1,77 @@
 class Solution:
     def minCost(self, height: list[int]) -> int:
         # code here
-
-        n = (len(height) -1)
         
-        
-        dp = [-1] * n
-        def recurse(i,n):
+        dp = [-1] * (len(height) + 1)
+        n = len(height) - 1
+        def recurse(i):
             if i == n:
                 return 0
-                
             if dp[i] != -1:
                 return dp[i]
-            temp1 = 100000
-            temp2 = 100000
-            
-            temp1 = (abs(height[i] - height[i+1]) + recurse(i + 1,n))
-            
-            if (i + 2) <= n:
-                temp2 = (abs(height[i] - height[i + 2]) + recurse(i + 2,n))
-            dp[i] = min(temp1, temp2)
-            return dp[i]
+                
+            total1 = abs(height[i] - height[i+1]) + recurse(i+1)
+            total2 = float('inf')
+            if i+2 <=n:
+                total2 = abs(height[i] - height[i+2]) + recurse(i+2)
+            dp[i] = min(total1, total2)
+            return min(total1, total2)
         
-        return recurse(0,n)
+        return recurse(0)
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        # n = (len(height) -1)
+        
+        
+        # dp = [-1] * n
+        # def recurse(i,n):
+        #     if i == n:
+        #         return 0
+                
+        #     if dp[i] != -1:
+        #         return dp[i]
+        #     temp1 = 100000
+        #     temp2 = 100000
+            
+        #     temp1 = (abs(height[i] - height[i+1]) + recurse(i + 1,n))
+            
+        #     if (i + 2) <= n:
+        #         temp2 = (abs(height[i] - height[i + 2]) + recurse(i + 2,n))
+        #     dp[i] = min(temp1, temp2)
+        #     return dp[i]
+        
+        # return recurse(0,n)
         
         # n = len(height)
         # if n == 1:
