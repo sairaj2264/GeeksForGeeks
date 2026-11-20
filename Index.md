@@ -4,6 +4,7 @@ All solved problems organized by pattern/category.
 
 
 ## Uncategorized
+- [Sort in Specific Order](./GeeksForGeeks/Medium/Sort%20in%20Specific%20Order) - *Medium*
 - [Ways to Reach the n'th Stair](./GeeksForGeeks/Medium/Ways%20to%20Reach%20the%20nth%20Stair) - *Medium*
 - [Fibonacci Sum](./GeeksForGeeks/Medium/Fibonacci%20Sum) - *Medium*
 - [Nth Fibonacci Using Recursion](./GeeksForGeeks/Easy/Nth%20Fibonacci%20Using%20Recursion) - *Easy*
