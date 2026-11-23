@@ -1,32 +1,26 @@
 class Solution:
-	def perfectSum(self, arr, target):
+	def perfectSum(self, arr: list[int], target: int) -> int:
 		# code here
-	    
-	    summ = 0
-	    for i in range(0 , len(arr)):
-	        summ = summ + arr[i]
-	        
-	    dp = [[-1] * (len(arr) + 1) for _ in range(summ + 1)]
 		
-		def recurse(arr, target, summ, idx):
-		    
-		    if idx >= len(arr):
-		        if summ == target:
-		            return 1
-		        return 0
+		dp = [[-1] * (target + 2) for _ in range(len(arr) + 2)]
+		
+		
+		def recurse(i,summ):
+		    if summ > target              :
+                return 0
             
-            sum1 = 0
-            sum2 = 0
-            if dp[summ][idx] != -1:
-                return  dp[summ][idx]
+            if i >= len(arr):
+                if summ == target:
+                    return 1
+                return 0
                 
-            sum1 = recurse(arr, target, summ, idx + 1)
-
-            sum2 = recurse(arr, target, summ + arr[idx], idx + 1)
-            
-            dp[(summ)][idx] = (sum1 + sum2)
-            
-            return dp[(summ)][idx]
+            if dp[i][summ] != -1:
+                return dp[i][summ]
+                
+            ans1 = recurse(i+1, summ + arr[i])
+            ans2 = recurse(i+1, summ)
+            dp[i][summ] = (ans1 + ans2)
+            return (ans1 + ans2)
             
         
-        return recurse(arr, target, 0 , 0)
+        return recurse(0,0)
