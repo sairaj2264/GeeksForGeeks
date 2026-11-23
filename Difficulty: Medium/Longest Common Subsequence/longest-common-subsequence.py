@@ -3,24 +3,44 @@ class Solution:
         # code here
         l1 = len(s1)
         l2 = len(s2)
-        dp = [[-1] * (l2 + 1) for _ in range(l1 + 1)]
-        def recurse(i,j):
-            if i >= l1:
-                return 0
-            if j >= l2:
-                return 0
-            
-            if dp[i][j] != -1:
-                return dp[i][j]
-                
-            if s1[i] == s2[j]:
-                dp[i][j] = 1 + recurse(i+1, j+1)
-                return dp[i][j]
-            else:
-                dp[i][j] = max(recurse(i+1,j), recurse(i, j+1))
-                return dp[i][j]
+        dp = [[0] * (l2 + 1) for _ in range(l1 + 1)]
         
-        return recurse(0,0)
+        
+        
+        
+        for i in range (l1-1,-1,-1):
+            for j in range(l2-1,-1,-1):
+                # if dp[i][j] != 0:
+                #     return dp[i][j]
+                    
+                if s1[i] == s2[j]:
+                    dp[i][j] = 1 + dp[i+1][j+1]
+                    # return dp[i][j]
+                else:
+                    dp[i][j] = max(dp[i+1][j], dp[i][j+1])
+                    # return dp[i][j]
+                    
+        return dp[0][0]
+            
+        # def recurse(i,j):
+        #     if i >= l1:
+        #         return 0
+        #     if j >= l2:
+        #         return 0
+            
+        #     if dp[i][j] != -1:
+        #         return dp[i][j]
+                
+        #     if s1[i] == s2[j]:
+        #         dp[i][j] = 1 + recurse(i+1, j+1)
+        #         return dp[i][j]
+        #     else:
+        #         dp[i][j] = max(recurse(i+1,j), recurse(i, j+1))
+        #         return dp[i][j]
+        
+        # return recurse(0,0)
+        
+        
         
         
         
