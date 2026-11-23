@@ -1,30 +1,62 @@
 class Solution:
     def longCommSubstr(self, s1, s2):
         # code here
-        a = max(len(s1), len(s2))
+        l1 = len(s1)
+        l2 = len(s2)
+        
+        
+        dp = [[0] * (l2 + 1) for _ in range(l1 + 1)]
+        # def recurse(i,j):
+            
+        #     if i >= l1 or j >= l2:
+        #         return 0
+                
+        #     if s1[i] == s2[j]:
+        #         return 1 + recurse(i+1,j+1)
+            
+        #     else:
+        #         return 0
+                
         maxx = 0
-        
-        dp = [[0]* (len(s2) + 1) for _ in range(len(s1) + 1)]
-        
-        
-        for i in range(0 , len(s1) + 1):
-            dp[i][0] = 0
-            
-        for i in range(0 , len(s2) + 1):
-            dp[0][i] = 0
-            
-        for i in range(1 , len(s1) + 1):
-            
-            for j in range(1 , len(s2) + 1):
-                
-                if s1[i-1] == s2[j-1]:
-                    dp[i][j] = (1 + dp[i-1][j-1])
-                    maxx = max(dp[i][j], maxx)
-                else:  
-                    dp[i][j] = 0
-                
-        # print(dp)
+        for i in range(l1-1, -1, -1):
+            for j in range(l2-1, -1, -1):
+                if s1[i] == s2[j]:
+                    dp[i][j] = 1 + dp[i+1][j+1]
+                    maxx = max(maxx, dp[i][j])
+                    
+                    
         return maxx
+                
+        
+        
+        
+        
+        
+        
+        # a = max(len(s1), len(s2))
+        # maxx = 0
+        
+        # dp = [[0]* (len(s2) + 1) for _ in range(len(s1) + 1)]
+        
+        
+        # for i in range(0 , len(s1) + 1):
+        #     dp[i][0] = 0
+            
+        # for i in range(0 , len(s2) + 1):
+        #     dp[0][i] = 0
+            
+        # for i in range(1 , len(s1) + 1):
+            
+        #     for j in range(1 , len(s2) + 1):
+                
+        #         if s1[i-1] == s2[j-1]:
+        #             dp[i][j] = (1 + dp[i-1][j-1])
+        #             maxx = max(dp[i][j], maxx)
+        #         else:  
+        #             dp[i][j] = 0
+                
+        # # print(dp)
+        # return maxx
         
         # print(dp)
         # uzvnzr
