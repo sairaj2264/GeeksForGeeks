@@ -1,28 +1,53 @@
 class Solution:
     def lcs(self, s1, s2):
         # code here
-        l1 = len(s1) + 1
-        l2 = len(s2) + 1
-        dp = [[-1] * l2 for _ in range(l1)]
-        
-        for i in range(l1):
-            dp[i][0] = 0
-        
-        for j in range(l2):
-            dp[0][j] = 0
-        for i in range(1 , l1):
-            for j in range(1 , l2):
-                if s1[i-1] == s2[j-1]:
-                    temp = 1 + dp[i-1][j-1]
-                    dp[i][j] = temp
+        l1 = len(s1)
+        l2 = len(s2)
+        dp = [[-1] * (l2 + 1) for _ in range(l1 + 1)]
+        def recurse(i,j):
+            if i >= l1:
+                return 0
+            if j >= l2:
+                return 0
+            
+            if dp[i][j] != -1:
+                return dp[i][j]
                 
-                else:
-                    val1 = dp[i-1][j]
-                    val2 = dp[i][j-1]
-                    dp[i][j] = max(val1, val2)
+            if s1[i] == s2[j]:
+                dp[i][j] = 1 + recurse(i+1, j+1)
+                return dp[i][j]
+            else:
+                dp[i][j] = max(recurse(i+1,j), recurse(i, j+1))
+                return dp[i][j]
+        
+        return recurse(0,0)
         
         
-        return dp[l1-1][l2-1]
+        
+        
+        
+        # l1 = len(s1) + 1
+        # l2 = len(s2) + 1
+        # dp = [[-1] * l2 for _ in range(l1)]
+        
+        # for i in range(l1):
+        #     dp[i][0] = 0
+        
+        # for j in range(l2):
+        #     dp[0][j] = 0
+        # for i in range(1 , l1):
+        #     for j in range(1 , l2):
+        #         if s1[i-1] == s2[j-1]:
+        #             temp = 1 + dp[i-1][j-1]
+        #             dp[i][j] = temp
+                
+        #         else:
+        #             val1 = dp[i-1][j]
+        #             val2 = dp[i][j-1]
+        #             dp[i][j] = max(val1, val2)
+        
+        
+        # return dp[l1-1][l2-1]
         
         
         # def recurse(text1, text2, idx1, idx2):
