@@ -4,6 +4,7 @@ All solved problems organized by pattern/category.
 
 
 ## Uncategorized
+- [Knapsack with Duplicate Items](./GeeksForGeeks/Medium/Knapsack%20with%20Duplicate%20Items) - *Medium*
 - [Longest Bitonic Subsequence](./GeeksForGeeks/Medium/Longest%20Bitonic%20Subsequence) - *Medium*
 - [Sort in Specific Order](./GeeksForGeeks/Medium/Sort%20in%20Specific%20Order) - *Medium*
 - [Ways to Reach the n'th Stair](./GeeksForGeeks/Medium/Ways%20to%20Reach%20the%20nth%20Stair) - *Medium*
